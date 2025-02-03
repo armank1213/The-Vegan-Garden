@@ -34,12 +34,12 @@ navLink.forEach(n => n.addEventListener('click', linkAction));
 /*=============== ADD SHADOW HEADER ===============*/
 
 const shadowHeader = () =>{
-    const header = document.getElementById('header');
-    this.scrollY >= 50 ? header.classList.add('shadow-header')
-                        : header.classList.remove('shadow-header')
+    const header = document.getElementById('header')
+    // Add a class if the bottom offset is greater than 50 of the viewport
+    this.scrollY >= 50 ? header.classList.add('shadow-header') 
+                       : header.classList.remove('shadow-header')
 }
-
-window.addEventListener('scroll', shadowHeader);
+window.addEventListener('scroll', shadowHeader)
 
 
 /*=============== SWIPER POPULAR ===============*/
@@ -82,3 +82,18 @@ const scrollActive = () =>{
 window.addEventListener('scroll', scrollActive)
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2500,
+    delay: 300,
+   // reset: true, // Animations repeat
+})
+
+sr.reveal(`.home__data, .popular__container, .footer`)
+sr.reveal(`.home__board`, {delay: 700, distance: '100px', origin: 'right'})
+sr.reveal(`.home__salad`, {delay: 1400, distance: '100px', origin: 'bottom', rotate: {z: -90}})
+sr.reveal(`.home__ingredient`, {delay: 2000, interval: 100})
+sr.reveal(`.about__data, .recipe__list, .contact_data`, {origin: 'right'})
+sr.reveal(`.about__img, .recipe__img, .contact__image`, {origin: 'left'})
+sr.reveal(`.menu__card`, {interval: 100})
